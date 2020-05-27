@@ -10,10 +10,12 @@ ActiveRecord::Base.transaction do
     list_template: template,
     item_type: 'Onboarding::PayrollPaperwork',
   )
-  ListTemplateItem.create!(
+  template_item = ListTemplateItem.create!(
     list_template: template,
     item_type: 'Onboarding::PayrollPaperwork',
   )
+
+  template_item.build_item # returns an instance of Onboarding::PayrollPaperwork
 
   list = List.create!(name: 'my list')
   # Examples of specific item types
